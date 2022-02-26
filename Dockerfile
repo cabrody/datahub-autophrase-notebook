@@ -23,6 +23,11 @@ RUN apt-get -y install htop
 RUN apt-get -y install g++-4.8
 RUN apt-get -y install openjdk-8-jdk
 RUN apt-get -y install curl
+RUN \
+  apt-get update && \
+  apt-get install -y sudo curl git && \
+  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash && \
+  sudo apt-get install git-lfs=1.0.0 && \
 
 # 3) install packages using notebook user
 USER crbrody
