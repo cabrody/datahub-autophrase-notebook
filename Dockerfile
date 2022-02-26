@@ -30,13 +30,9 @@ RUN \
     
 
 RUN \
-  apt-get update && \
-  apt-get install -y sudo curl git && \
+  apt-get update && apt-get install -y --force-yes curl git && \
   curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash && \
-  sudo apt-get install git-lfs=1.0.0 && \
-  mkdir -p /src 
-
-WORKDIR /src
+  apt-get install git-lfs=1.0.0
 
 
 RUN apt-get install -y --no-install-recommends software-properties-common
